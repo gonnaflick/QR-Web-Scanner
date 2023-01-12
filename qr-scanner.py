@@ -26,6 +26,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 
+url = "THE URL OF YOUR WEB PAGE"
+xpath = "ELEMENT XPATH"
+
 # Function to send notifications
 def notify(message, audio, icon):
     notification = Notify()
@@ -67,12 +70,12 @@ options = Options()
 options.add_argument("--start-maximized")
 browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
 
-browser.get('YOUR BROWSER URL')
+browser.get(url)
 
 # Wait for login input to find XPATH in home
 try:
     # Where tuition is the auto-filled object for the text element
-    idNum = WebDriverWait(browser, 600).until(EC.presence_of_element_located((By.XPATH,'ELEMENT XPATH')))
+    idNum = WebDriverWait(browser, 600).until(EC.presence_of_element_located((By.XPATH, xpath)))
 except Exception as e: 
     # Exception alert for timeout
     pyautogui.alert('Saliendo de la aplicacion por inactividad.','Advertencia','Aceptar')
