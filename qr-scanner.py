@@ -26,8 +26,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 
-url = "THE URL OF YOUR WEB PAGE"
-xpath = "ELEMENT XPATH"
+# The URL of your web page, for testing purposes I'll use Google's search bar
+url = 'https://www.google.com/'
+# The item XPATH
+xpath = '//*[@id="APjFqb"]'
 
 # Function to send notifications
 def notify(message, audio, icon):
@@ -68,7 +70,7 @@ scanTime = time.time() + 10
 # Web auto-fill config
 options = Options()
 options.add_argument("--start-maximized")
-browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
+browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 browser.get(url)
 
